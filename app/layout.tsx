@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Archivo, Archivo_Narrow } from "next/font/google";
+import { Navbar } from "@/components/navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${archivoNarrow.variable} ${archivoSans.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
