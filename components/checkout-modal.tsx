@@ -12,7 +12,7 @@ import "@/config-wallet"
 // USDC Contract Address en Sepolia (testnet)
 const USDC_CONTRACT_SEPOLIA = "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8"
 // Tu address de destino (reemplazar con tu address real)
-const RECIPIENT_ADDRESS = "0x445D72E4705976c4a4737e75d1503B842fD8E2eC" // Address testnet
+const RECIPIENT_ADDRESS = "0x180384542CA85a5E7915b55a34f856296E65B55d" // Address testnet
 
 // ABI mínimo para transferencia USDC
 const USDC_ABI = [
