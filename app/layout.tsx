@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Archivo, Archivo_Narrow } from "next/font/google";
 import { Navbar } from "@/components/navbar";
+import { CartProvider } from "@/contexts/cart-context";
+import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +27,7 @@ const archivoNarrow = Archivo_Narrow({
 });
 
 export const metadata: Metadata = {
-  title: "Cerámicas by Ailu",
+  title: "Cerámicas by Cami",
   description: "Lovemade pottery, each piece is única",
 };
 
@@ -37,10 +39,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivoNarrow.variable} ${archivoSans.variable} antialiased`}
+        className={`${archivoNarrow.variable} ${archivoSans.variable} antialiased bg-[#bd6340]`}
       >
-        <Navbar />
-        {children}
+        <Providers>
+          <CartProvider>
+            <Navbar />
+            {children}
+          </CartProvider>
+        </Providers>
       </body>
     </html>
   );

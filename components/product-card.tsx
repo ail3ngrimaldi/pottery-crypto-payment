@@ -1,13 +1,17 @@
+"use client"
+
 import type { Product } from "@/types/product"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/contexts/cart-context"
 
 interface ProductCardProps {
   product: Product
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addItem } = useCart()
   return (
     <Card
       id={`product-${product.id}`}
@@ -38,8 +42,14 @@ export function ProductCard({ product }: ProductCardProps) {
           <Button
             disabled={!product.available}
             className="bg-[var(--color-red)] hover:bg-[var(--color-red-light)] text-white"
+            onClick={() => {
+              if (product.available) {
+                addItem(product)
+                console.log("Producto agregado al carrito:", product.name);
+              }
+            }}
           >
-            {product.available ? "Consultar" : "No disponible"}
+            {product.available ? "Agregar al carrito" : "No disponible"}
           </Button>
         </div>
       </div>
